@@ -1,0 +1,28 @@
+#Info {
+  display: block;
+}
+
+#CountDown {
+  margin-left: 5px;
+  display: inline-block;
+}
+
+#Related {
+  margin: 10%;
+  display: block;
+}
+
+#title {
+  width: 100%;
+  padding-bottom: 10px;
+}
+
+#top-module {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+
+#body {
+  width: 80%;
+  margin: 0 auto;
+}
