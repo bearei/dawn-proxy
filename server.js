@@ -6,7 +6,7 @@ const port = process.env.PORT || 3000;
 const proxy = require('http-proxy-middleware');
 
 app.use(morgan('dev'));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use('/:itemId', express.static(path.join(__dirname, 'public')));
 // app.use((req, res, next) => {
 //   res.header('Access-Control-Allow-Origin', '*');
 //   res.header(
@@ -16,29 +16,29 @@ app.use(express.static(path.join(__dirname, 'public')));
 //   next();
 // });
 
-// app.use(
-//   '/:itemId',
-//   proxy({
-//     target: 'http://localhost:3001',
-//     changeOrigin: true,
-//   })
-// );
+app.use(
+  '/products/:itemId',
+  proxy({
+    target: 'http://localhost:3001',
+    changeOrigin: true,
+  })
+);
 
-// app.use(
-//   '/reviews/:itemId',
-//   proxy({
-//     target: 'http://localhost:3003',
-//     changeOrigin: true,
-//   })
-// );
+app.use(
+  '/reviews/:itemId',
+  proxy({
+    target: 'http://localhost:3003',
+    changeOrigin: true,
+  })
+);
 
-// app.use(
-//   '/:id',
-//   proxy({
-//     target: 'http://localhost:8081',
-//     changeOrigin: true,
-//   })
-// );
+app.use(
+  '/api/pavs/:id',
+  proxy({
+    target: 'http://localhost:8081',
+    changeOrigin: true,
+  })
+);
 
 app.listen(port, () => {
   console.log(`server running at: http://localhost:${port}`);
