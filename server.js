@@ -47,7 +47,7 @@ app.use('/:itemId/', express.static(path.join(__dirname, 'public')));
 // app.get('/api/pavs/:id', getCache);
 
 app.use(
-  '/1',
+  '/:itemId',
   proxy({
     target: 'http://3.82.213.114:3001',
     changeOrigin: true,
