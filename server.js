@@ -47,27 +47,27 @@ app.use('/:itemId', express.static(path.join(__dirname, 'public')));
 // app.get('/api/pavs/:id', getCache);
 
 app.use(
-  '/products/',
+  '/:itemId',
   proxy({
-    target: 'http://localhost:3001',
+    target: 'http://3.82.213.114:3001',
     changeOrigin: true,
   })
 );
 
-app.use(
-  '/reviews',
-  proxy({
-    target: 'http://localhost:3003',
-    changeOrigin: true,
-  })
-);
+// app.use(
+//   '/reviews/:id',
+//   proxy({
+//     target: 'http://127.0.0.1:3003',
+//     changeOrigin: true,
+//   })
+// );
 
-app.use(
-  '/post',
-  proxy({
-    target: 'http://localhost:8081',
-    changeOrigin: true,
-  })
+// app.use(
+//   '/:id',
+//   proxy({
+//     target: 'http://127.0.0.1:8081',
+//     changeOrigin: true,
+//   })
 );
 
 app.listen(port, () => {

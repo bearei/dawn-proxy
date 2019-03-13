@@ -1,41 +1,41 @@
 config:
   target: 'http://localhost:3000'
   phases:
-    - duration: 10
-      arrivalRate: 75
+    - duration: 1
+      arrivalRate: 1
 scenarios:
   - flow:
-      # - get:
-      #     url: '/products/1'
-      # - get:
-      #     url: '/reviews/1'
-      # - get:
-      #     url: '/api/pavs/1'
-      - post:
-          url: '/products/'
-          json:
-            brand: 'brand'
-            title: 'title'
-            averageRating: 23
-            reviewCount: 23
-            freeShipping: 'true'
-            shippingRestriction: 'false'
-      - post:
-          url: '/reviews'
-          json:
-            rating: 5
-            title: 'NEWRELIC TEST'
-            text: 'This is probably the greatest product ever.'
-            recommend: 'true'
-            name: 'Bob Boblaw'
-            fit: 3
-            itemId: 2
-      - post:
-          url: '/post'
-          json:
-            link_to_image: 'https://s3-us-west-1.amazonaws.com/hreipavs/1.jpg'
-            star_rating: 4
-            review_count: 50
-            short_description: 'Test Fake Product'
-            price: 80
-            product_id: 5
+      - get:
+          url: '/products/1'
+      - get:
+          url: '/reviews/1'
+      - get:
+          url: '/api/pavs/1'
+      # - post:
+      #     url: '/products/'
+      #     json:
+      #       brand: 'brand'
+      #       title: 'title'
+      #       averageRating: 23
+      #       reviewCount: 23
+      #       freeShipping: 'true'
+      #       shippingRestriction: 'false'
+      # - post:
+      #     url: '/reviews'
+      #     json:
+      #       rating: 5
+      #       title: 'NEWRELIC TEST'
+      #       text: 'This is probably the greatest product ever.'
+      #       recommend: 'true'
+      #       name: 'Bob Boblaw'
+      #       fit: 3
+      #       itemId: 2
+      # - post:
+      #     url: '/post'
+      #     json:
+      #       link_to_image: 'https://s3-us-west-1.amazonaws.com/hreipavs/1.jpg'
+      #       star_rating: 4
+      #       review_count: 50
+      #       short_description: 'Test Fake Product'
+      #       price: 80
+      #       product_id: 5
