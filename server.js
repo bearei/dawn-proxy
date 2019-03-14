@@ -21,14 +21,14 @@ app.use(morgan('dev'));
 app.use('/:itemId/', express.static(path.join(__dirname, 'public')));
 console.log('dirname is-----');
 console.log(__dirname);
-// app.use((req, res, next) => {
-//   res.header('Access-Control-Allow-Origin', '*');
-//   res.header(
-//     'Access-Control-Allow-Headers',
-//     'Origin, X-Requested-With, Content-Type, Accept'
-//   );
-//   next();
-// });
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header(
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content-Type, Accept'
+  );
+  next();
+});
 
 // client.on('error', function(err) {
 //   console.log('error' + err);
@@ -54,7 +54,7 @@ console.log(__dirname);
 app.use(
   '/products/:itemId',
   proxy({
-    target: 'http://52.0.82.54:3002',
+    target: 'http://3.95.173.198:3001',
     changeOrigin: true,
   })
 );
@@ -62,7 +62,7 @@ app.use(
 app.use(
   '/variants/:itemId',
   proxy({
-    target: 'http://52.0.82.54:3002',
+    target: 'http://3.95.173.198:3001',
     changeOrigin: true,
   })
 );
