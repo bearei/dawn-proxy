@@ -19,6 +19,8 @@ const proxy = require('http-proxy-middleware');
 
 app.use(morgan('dev'));
 app.use('/:itemId/', express.static(path.join(__dirname, 'public')));
+console.log('dirname is-----');
+console.log(__dirname);
 // app.use((req, res, next) => {
 //   res.header('Access-Control-Allow-Origin', '*');
 //   res.header(
@@ -54,13 +56,13 @@ app.use(
   })
 );
 
-// app.use(
-//   '/reviews/:id',
-//   proxy({
-//     target: 'http://127.0.0.1:3003',
-//     changeOrigin: true,
-//   })
-// );
+app.use(
+  '/reviews/:id',
+  proxy({
+    target: 'http://18.188.163.54:3003',
+    changeOrigin: true,
+  })
+);
 
 // app.use(
 //   '/:id',
