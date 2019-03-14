@@ -57,7 +57,7 @@ app.use(
 );
 
 app.use(
-  '/:itemId',
+  '/reviews/:itemId',
   proxy({
     target: 'http://18.188.163.54:3003',
     changeOrigin: true,
