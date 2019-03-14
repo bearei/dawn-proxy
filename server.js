@@ -54,7 +54,7 @@ console.log(__dirname);
 app.use(
   '/products/:itemId',
   proxy({
-    target: 'http://3.95.173.198:3001',
+    target: 'http://52.0.82.54:3002',
     changeOrigin: true,
   })
 );
@@ -62,7 +62,7 @@ app.use(
 app.use(
   '/variants/:itemId',
   proxy({
-    target: 'http://3.95.173.198:3001',
+    target: 'http://52.0.82.54:3002',
     changeOrigin: true,
   })
 );
