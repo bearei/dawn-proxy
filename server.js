@@ -48,6 +48,9 @@ console.log(__dirname);
 // }
 // app.get('/api/pavs/:id', getCache);
 
+//////////////////////
+// Product Options //
+/////////////////////
 app.use(
   '/:itemId',
   proxy({
@@ -56,8 +59,59 @@ app.use(
   })
 );
 
+/////////////
+// Reviews //
+////////////
+// app.use(
+//   '/:itemId',
+//   proxy({
+//     target: 'http://18.188.163.54:3003',
+//     changeOrigin: true,
+//   })
+// );
+
+// app.use(
+//   '/post',
+//   proxy({
+//     target: 'http://18.188.163.54:3003',
+//     changeOrigin: true,
+//   })
+// );
+
+// app.use(
+//   '/items/:itemId',
+//   proxy({
+//     target: 'http://18.188.163.54:3003',
+//     changeOrigin: true,
+//   })
+// );
+
+// app.use(
+//   '/reviews/helpful/:reviewId',
+//   proxy({
+//     target: 'http://18.188.163.54:3003',
+//     changeOrigin: true,
+//   })
+// );
+
+// app.use(
+//   '/reviews/notHelpful/:reviewId',
+//   proxy({
+//     target: 'http://18.188.163.54:3003',
+//     changeOrigin: true,
+//   })
+// );
+
+// app.use(
+//   '/reviews/flag/:reviewId',
+//   proxy({
+//     target: 'http://18.188.163.54:3003',
+//     changeOrigin: true,
+//   })
+// );
+
 app.use(
-  '/reviews/:itemId',
+  '/:itemId',
   proxy({
     target: 'http://18.188.163.54:3003',
     changeOrigin: true,
