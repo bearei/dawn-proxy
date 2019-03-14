@@ -146,6 +146,14 @@ app.use(
   })
 );
 
+app.use(
+  '/reviews/',
+  proxy({
+    target: 'http://52.15.132.177:3004',
+    changeOrigin: true,
+  })
+);
+
 app.listen(port, () => {
   console.log(`server running at: http://localhost:${port}`);
 });
