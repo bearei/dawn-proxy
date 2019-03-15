@@ -19,7 +19,7 @@ const proxy = require('http-proxy-middleware');
 
 app.use(morgan('dev'));
 app.use('/', express.static(path.join(__dirname, 'loaderio')));
-app.use('/:itemId/', express.static(path.join(__dirname, 'public')));
+app.use('/shopping/:itemId/', express.static(path.join(__dirname, 'public')));
 console.log(__dirname);
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
@@ -79,29 +79,29 @@ app.use(
 // Related Items and Size Chart //
 //////////////////////////////////
 
-// app.use(
-//   '/post',
-//   proxy({
-//     target: 'http://18.224.184.136:3008',
-//     changeOrigin: true,
-//   })
-// );
+app.use(
+  '/api/post',
+  proxy({
+    target: 'http://18.224.19.41:3010',
+    changeOrigin: true,
+  })
+);
 
-// app.use(
-//   '/api/sizechart',
-//   proxy({
-//     target: 'http://18.224.184.136:3008',
-//     changeOrigin: true,
-//   })
-// );
+app.use(
+  '/api/sizechart',
+  proxy({
+    target: 'http://18.224.19.41:3010',
+    changeOrigin: true,
+  })
+);
 
-// app.use(
-//   '/api/pavs/:id',
-//   proxy({
-//     target: 'http://18.224.184.136:3008/',
-//     changeOrigin: true,
-//   })
-// );
+app.use(
+  '/api/pavs/:itemId',
+  proxy({
+    target: 'http://18.224.19.41:3010/',
+    changeOrigin: true,
+  })
+);
 
 //////////////////////
 ///// Reviews ///////
