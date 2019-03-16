@@ -6,17 +6,6 @@ const app = express();
 const port = process.env.PORT || 3000;
 const proxy = require('http-proxy-middleware');
 
-// start redis server in CLI: redis-server
-// var redis = require('redis');
-// var client = redis.createClient();
-// var client = redis.createClient(port);
-// client.on('connect', function() {
-//   console.log('Redis client connected');
-// });
-// client.on('error', function(err) {
-//   console.log('Something went wrong ' + err);
-// });
-
 app.use(morgan('dev'));
 app.use('/', express.static(path.join(__dirname, 'loaderio')));
 app.use('/shopping/:itemId/', express.static(path.join(__dirname, 'public')));
@@ -29,24 +18,6 @@ app.use((req, res, next) => {
   );
   next();
 });
-
-// client.on('error', function(err) {
-//   console.log('error' + err);
-// });
-// const getCache = (req, res) => {
-//   client.get(req.params.id, (err, result) => {
-//     if (result) {
-//       res.send(result);
-//     } else {
-//       db.fetchFourRandomPAVsFromDB(req.params.id)
-//         .then(pavs => {
-//           client.setex(req.params.id, 60, JSON.stringify(pavs));
-//           res.send(pavs)
-//         });
-//     }
-//   })
-// }
-// app.get('/api/pavs/:id', getCache);
 
 //////////////////////
 // Product Options //
@@ -109,13 +80,6 @@ app.use(
 
 app.use(
   '/reviews/:itemId',
-  proxy({
-    target: 'http://52.15.132.177:3004',
-    changeOrigin: true,
-  })
-);
-app.use(
-  '/post',
   proxy({
     target: 'http://52.15.132.177:3004',
     changeOrigin: true,
